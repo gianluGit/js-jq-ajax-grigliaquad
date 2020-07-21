@@ -5,6 +5,7 @@ function initGameSquare() {
 
   function clickSquare() {
     var squareSelect = $(this);
+    squareSelect.off('click');
     $.ajax({
       url: 'https://flynn.boolean.careers/exercises/api/random/int',
       method: 'GET',
@@ -14,20 +15,19 @@ function initGameSquare() {
 
 
         console.log(value);
-        console.log(data);
 
         if (success == true) {
           if (value <= 5) {
-            squareSelect.removeClass('yellow green');
+            // squareSelect.removeClass('yellow green');
             squareSelect.addClass('yellow');
 
-            squareSelect.find('h3').text('');
+            // squareSelect.find('h3').text('');
             squareSelect.find('h3').append(value);
           } else if (value > 5) {
-            squareSelect.removeClass('green yellow');
+            // squareSelect.removeClass('green yellow');
             squareSelect.addClass('green');
-            
-            squareSelect.find('h3').text('');
+
+            // squareSelect.find('h3').text('');
             squareSelect.find('h3').append(value);
           }
 
